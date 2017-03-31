@@ -88,9 +88,12 @@ namespace PdfScreenShot
             Acrobat.AcroPDDoc pdf = new AcroPDDoc();
             pdf.Open(strFile);
 
+            int pageCount = Convert.ToInt32(txtPage.Text);
             int count = pdf.GetNumPages();
             for (int i = 0; i < count; i++)
             {
+                if (i == pageCount)
+                    break;
                 listMsg.Items.Add($"正在导出第{i + 1}页(共{count}页)");
                 listMsg.TopIndex = listMsg.Items.Count - 1;
                 int zoom = 1;

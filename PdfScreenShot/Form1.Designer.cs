@@ -34,6 +34,8 @@
             this.btnPath = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.listMsg = new System.Windows.Forms.ListBox();
+            this.txtPage = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // radFile
@@ -94,11 +96,30 @@
             this.listMsg.Size = new System.Drawing.Size(476, 310);
             this.listMsg.TabIndex = 4;
             // 
+            // txtPage
+            // 
+            this.txtPage.Location = new System.Drawing.Point(411, 121);
+            this.txtPage.Name = "txtPage";
+            this.txtPage.Size = new System.Drawing.Size(62, 28);
+            this.txtPage.TabIndex = 5;
+            this.txtPage.Text = "9999";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(361, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 18);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "页数";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 492);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtPage);
             this.Controls.Add(this.listMsg);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnPath);
@@ -122,6 +143,8 @@
         private System.Windows.Forms.Button btnPath;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.ListBox listMsg;
+        private System.Windows.Forms.TextBox txtPage;
+        private System.Windows.Forms.Label label1;
     }
 }
 

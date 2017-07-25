@@ -126,7 +126,14 @@ namespace PdfScreenShot
             }
             else
             {
-                size = new Size[] { new Size(721, 540), new Size(210, 117), new Size(120, 89) };
+                if (chkKuanPing.Checked)
+                {
+                    size = new Size[] { new Size(721, 405), new Size(210, 117), new Size(120, 67) };
+                }
+                else
+                {
+                    size = new Size[] { new Size(721, 540), new Size(210, 117), new Size(120, 89) };
+                } 
             }
             string strBig = $@"{strExportPath}\{strFileName}_{strPage}.jpg";
             using (Bitmap bt = new Bitmap(bitmap, size[0]))

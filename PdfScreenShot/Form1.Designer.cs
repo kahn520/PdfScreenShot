@@ -36,6 +36,7 @@
             this.listMsg = new System.Windows.Forms.ListBox();
             this.txtPage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.chkKuanPing = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // radFile
@@ -113,11 +114,24 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "页数";
             // 
+            // chkKuanPing
+            // 
+            this.chkKuanPing.AutoSize = true;
+            this.chkKuanPing.Checked = true;
+            this.chkKuanPing.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkKuanPing.Location = new System.Drawing.Point(322, 25);
+            this.chkKuanPing.Name = "chkKuanPing";
+            this.chkKuanPing.Size = new System.Drawing.Size(70, 22);
+            this.chkKuanPing.TabIndex = 7;
+            this.chkKuanPing.Text = "宽屏";
+            this.chkKuanPing.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 492);
+            this.Controls.Add(this.chkKuanPing);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPage);
             this.Controls.Add(this.listMsg);
@@ -145,6 +159,7 @@
         private System.Windows.Forms.ListBox listMsg;
         private System.Windows.Forms.TextBox txtPage;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chkKuanPing;
     }
 }
 

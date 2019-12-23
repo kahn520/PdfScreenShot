@@ -97,23 +97,38 @@ namespace PdfScreenShot
                 listMsg.Items.Add($"正在导出第{i + 1}页(共{count}页)");
                 listMsg.TopIndex = listMsg.Items.Count - 1;
                 int zoom = 1;
-                CAcroPDPage page = (CAcroPDPage)pdf.AcquirePage(i);
-                CAcroRect pdfRect = (Acrobat.CAcroRect)Microsoft.VisualBasic.Interaction.CreateObject("AcroExch.Rect", "");
-                CAcroPoint pdfPoint = (Acrobat.CAcroPoint)page.GetSize();
-                int imgWidth = (int)((double)pdfPoint.x * zoom);
-                int imgHeight = (int)((double)pdfPoint.y * zoom);
-
-                //设置裁剪矩形的大小为当前页的大小  
-                pdfRect.Left = 0;
-                pdfRect.right = (short)imgWidth;
-                pdfRect.Top = 0;
-                pdfRect.bottom = (short)imgHeight;
-                page.CopyToClipboard(pdfRect, 0, 0, (short)(100 * zoom));
-                Object obj = Clipboard.GetData(DataFormats.Bitmap);
-                using (Bitmap bitmap = (Bitmap)obj)
+                while (true)
                 {
-                    SavePicture(bitmap, strExportPath, Path.GetFileNameWithoutExtension(strFile), (i + 1).ToString());
+                    try
+                    {
+                        CAcroPDPage page = (CAcroPDPage) pdf.AcquirePage(i);
+                        CAcroRect pdfRect = (Acrobat.CAcroRect) Microsoft.VisualBasic.Interaction.CreateObject("AcroExch.Rect", "");
+                        CAcroPoint pdfPoint = (Acrobat.CAcroPoint) page.GetSize();
+                        int imgWidth = (int) ((double) pdfPoint.x * zoom);
+                        int imgHeight = (int) ((double) pdfPoint.y * zoom);
+
+                        //设置裁剪矩形的大小为当前页的大小  
+                        pdfRect.Left = 0;
+                        pdfRect.right = (short) imgWidth;
+                        pdfRect.Top = 0;
+                        pdfRect.bottom = (short) imgHeight;
+
+
+                        page.CopyToClipboard(pdfRect, 0, 0, (short) (100 * zoom));
+                        Object obj = Clipboard.GetData(DataFormats.Bitmap);
+                        using (Bitmap bitmap = (Bitmap) obj)
+                        {
+                            SavePicture(bitmap, strExportPath, Path.GetFileNameWithoutExtension(strFile), (i + 1).ToString());
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        continue;
+                    }
+
+                    break;
                 }
+
             }
         }
 
